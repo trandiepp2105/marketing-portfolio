@@ -1,0 +1,30 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.profile-introduction__eyebrow {
+  @include eyebrow;
+  margin-bottom: $space-3;
+}
+
+.profile-introduction h1 {
+  margin: 0;
+  color: $color-text;
+  font: 700 clamp(2.6rem, 6vw, 5rem) / 0.98 $font-display;
+  letter-spacing: -0.055em;
+}
+
+.profile-introduction__role {
+  margin: $space-2 0 0;
+  color: $color-orange-pale;
+  font: 700 clamp(1rem, 2.2vw, 1.4rem) $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-introduction__body {
+  max-width: 44rem;
+  margin: $space-6 0 0;
+  color: $color-text-soft;
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.72;
+}

@@ -1,0 +1,16 @@
+{
+  "short_name": "Ly Gia Huy",
+  "name": "Ly Gia Huy — Game Marketing Portfolio",
+  "icons": [
+    {
+      "src": "portfolio-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0b0c10",
+  "background_color": "#0b0c10"
+}

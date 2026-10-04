@@ -1,0 +1,51 @@
+@use '../../../styles/tokens' as *;
+
+.image-lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.image-lightbox__dialog {
+  width: min(100%, 70rem);
+  max-height: 100%;
+}
+
+.image-lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-bottom: $space-3;
+}
+
+.image-lightbox__header h2 {
+  margin: 0;
+  color: $color-text;
+  font: 600 1rem $font-display;
+}
+
+.image-lightbox__header button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface-raised;
+  color: $color-text;
+  font: 1.4rem 'Material Symbols Outlined';
+}
+
+.image-lightbox__dialog img {
+  width: 100%;
+  max-height: calc(100vh - 6rem);
+  object-fit: contain;
+  border: 1px solid rgba($color-text, 0.16);
+  border-radius: $radius-md;
+}

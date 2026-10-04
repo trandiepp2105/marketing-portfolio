@@ -1,0 +1,33 @@
+@use '../../../styles/tokens' as *;
+
+.return-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $space-4;
+  padding: $space-2 1rem $space-8;
+  color: $color-text-muted;
+  font: 700 0.62rem $font-display;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.return-links a:hover {
+  color: $color-orange;
+}
+
+.return-links span {
+  color: $color-border;
+}
+
+@media (max-width: 500px) {
+  .return-links {
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  .return-links > span {
+    display: none;
+  }
+}

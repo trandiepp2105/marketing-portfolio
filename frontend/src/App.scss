@@ -1,0 +1,12 @@
+@use './styles/tokens' as *;
+
+.app-shell {
+  min-height: 100vh;
+  overflow: clip;
+  background: $color-canvas;
+}
+
+.app-shell__main {
+  min-height: calc(100vh - #{$header-height});
+  padding-top: $header-height;
+}

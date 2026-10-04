@@ -1,0 +1,94 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.projects-section {
+  @include content-width;
+  margin-top: $space-8;
+  padding-bottom: $space-section;
+}
+
+.projects-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  margin-bottom: $space-4;
+  padding-bottom: $space-4;
+  border-bottom: 1px solid $color-border;
+}
+
+.projects-section__heading {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-3;
+}
+
+.projects-section__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 auto;
+  stroke: $color-orange;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.projects-section__title {
+  margin: 0;
+  color: $color-text;
+  font: 700 1.25rem/1.2 $font-display;
+  text-transform: uppercase;
+}
+
+.projects-section__badge {
+  padding: 0.28rem 0.55rem;
+  border-radius: $radius-sm;
+  font: 700 0.58rem/1.2 $font-display;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.projects-section__badge--brand {
+  border: 1px solid rgba($color-orange, 0.4);
+  background: rgba($color-orange, 0.1);
+  color: $color-orange;
+}
+
+.projects-section__badge--count {
+  background: $color-surface-high;
+  color: $color-text-muted;
+}
+
+.projects-section__hint {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 0.68rem;
+  text-align: right;
+}
+
+.projects-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.projects-section__empty {
+  padding: $space-8;
+  border: 1px dashed $color-border;
+  border-radius: $radius-md;
+  color: $color-text-muted;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .projects-section__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .projects-section__hint {
+    text-align: left;
+  }
+}

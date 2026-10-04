@@ -1,0 +1,27 @@
+@use '../../../styles/tokens' as *;
+
+.campaign-summary h4 {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin: 0 0 $space-3;
+  color: $color-orange;
+  font: 700 0.64rem $font-display;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.campaign-summary h4 span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: $color-orange;
+  box-shadow: 0 0 10px $color-orange;
+}
+
+.campaign-summary p {
+  margin: 0;
+  color: $color-text-soft;
+  font-size: 0.8rem;
+  line-height: 1.62;
+}

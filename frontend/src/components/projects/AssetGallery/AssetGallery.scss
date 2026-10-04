@@ -1,0 +1,42 @@
+@use '../../../styles/tokens' as *;
+
+.asset-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.asset-gallery__heading {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.asset-gallery__heading > span {
+  color: $color-orange;
+  font: 1rem 'Material Symbols Outlined';
+}
+
+.asset-gallery__heading h4 {
+  margin: 0;
+  color: $color-text;
+  font: 700 0.59rem $font-display;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.asset-gallery__heading small {
+  margin-left: auto;
+  color: $color-text-muted;
+  font: 600 0.52rem $font-display;
+  text-transform: uppercase;
+}
+
+.asset-gallery__items {
+  display: flex;
+  gap: $space-2;
+  overflow-x: auto;
+  padding: 0.15rem 0.1rem 0.5rem;
+  scrollbar-color: $color-surface-high transparent;
+  scrollbar-width: thin;
+}

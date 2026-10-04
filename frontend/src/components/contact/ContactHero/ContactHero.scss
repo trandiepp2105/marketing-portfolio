@@ -1,0 +1,50 @@
+@use '../../../styles/tokens' as *;
+
+.contact-hero {
+  position: relative;
+  display: flex;
+  min-height: 25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-4;
+  overflow: hidden;
+  padding: $space-8 1rem;
+  text-align: center;
+}
+
+.contact-hero > .badge {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+}
+
+.contact-hero h1 {
+  margin: 0;
+  color: $color-text;
+  font: 700 clamp(4.25rem, 16vw, 10rem) / 0.9 $font-display;
+  letter-spacing: -0.075em;
+  text-shadow: 0 0 32px rgba($color-orange, 0.24);
+}
+
+.contact-hero > p {
+  margin: 0;
+  color: $color-orange;
+  font: 700 clamp(1.2rem, 4vw, 2.2rem) $font-display;
+  letter-spacing: 0.17em;
+}
+
+.contact-hero__pulse {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: $color-orange;
+  box-shadow: 0 0 10px $color-orange;
+  animation: status-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}

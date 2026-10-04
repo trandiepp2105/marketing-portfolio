@@ -1,0 +1,46 @@
+@use '../../../styles/tokens' as *;
+
+.asset-thumbnail {
+  display: flex;
+  width: 10.5rem;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-2;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+
+.asset-thumbnail:hover {
+  border-color: rgba($color-orange, 0.7);
+}
+
+.asset-thumbnail__image {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+  background: #08090d;
+}
+
+.asset-thumbnail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.asset-thumbnail:hover img {
+  transform: scale(1.06);
+}
+
+.asset-thumbnail__title {
+  overflow: hidden;
+  color: $color-text-soft;
+  font: 600 0.57rem/1.35 $font-display;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

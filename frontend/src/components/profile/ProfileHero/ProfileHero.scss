@@ -1,0 +1,47 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.profile-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.profile-hero__glow {
+  position: absolute;
+  top: -16rem;
+  right: 2%;
+  width: 48rem;
+  height: 48rem;
+  border-radius: 50%;
+  background: rgba($color-orange, 0.13);
+  filter: blur(150px);
+  pointer-events: none;
+}
+
+.profile-hero__inner {
+  @include content-width;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.profile-hero__details {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+@media (max-width: 900px) {
+  .profile-hero__inner {
+    grid-template-columns: 1fr;
+    gap: $space-8;
+  }
+
+  .profile-hero__details {
+    gap: $space-4;
+  }
+}

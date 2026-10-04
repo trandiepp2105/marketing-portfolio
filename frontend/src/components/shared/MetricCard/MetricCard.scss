@@ -1,0 +1,29 @@
+@use '../../../styles/tokens' as *;
+
+.metric-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: $space-3;
+  border: 1px solid rgba($color-border, 0.9);
+  border-radius: $radius-sm;
+  background: rgba($color-surface-raised, 0.78);
+}
+
+.metric-card__value {
+  color: $color-orange;
+  font: 700 clamp(1rem, 2.2vw, 1.55rem) / 1.1 $font-display;
+}
+
+.metric-card__label {
+  color: $color-text-muted;
+  font: 700 0.52rem/1.4 $font-display;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.metric-card--white .metric-card__value {
+  color: $color-text;
+}

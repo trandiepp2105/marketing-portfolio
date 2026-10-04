@@ -1,0 +1,6 @@
+@use '../../../styles/tokens' as *;
+
+.project-list-card--learning li::before {
+  content: '◆';
+  font-size: 0.48rem;
+}

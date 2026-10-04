@@ -1,0 +1,27 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.career-section {
+  padding-block: $space-section;
+  background: #0d0e13;
+}
+
+.career-section__inner {
+  @include content-width;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.career-section__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: $space-6;
+}
+
+@media (max-width: 850px) {
+  .career-section__grid {
+    grid-template-columns: 1fr;
+  }
+}

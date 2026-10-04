@@ -1,0 +1,63 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.site-footer {
+  border-top: 1px solid $color-border;
+  background: #090a0e;
+}
+
+.site-footer__inner {
+  @include content-width;
+  display: flex;
+  min-height: 6rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  padding-block: $space-6;
+}
+
+.site-footer__identity {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-text-muted;
+  font-size: 0.75rem;
+}
+
+.site-footer__identity strong {
+  color: $color-text;
+  font: 700 0.88rem $font-display;
+  letter-spacing: 0.08em;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-6;
+  color: $color-text-muted;
+  font: 700 0.62rem $font-display;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-footer__links a:hover {
+  color: $color-orange;
+}
+
+.site-footer small {
+  color: $color-text-muted;
+  font: 600 0.58rem $font-display;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 760px) {
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-4;
+  }
+
+  .site-footer__links {
+    gap: $space-4;
+  }
+}

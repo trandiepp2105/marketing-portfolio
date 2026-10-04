@@ -1,0 +1,6 @@
+@use '../../../styles/mixins' as *;
+
+.portfolio-section-title {
+  @include eyebrow;
+  margin: 0;
+}

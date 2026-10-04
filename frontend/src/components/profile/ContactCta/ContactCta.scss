@@ -1,0 +1,115 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.contact-cta {
+  @include content-width;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: $space-section;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: $radius-md;
+  background: linear-gradient(112deg, #d84209, $color-orange 58%, #ff7439);
+  color: #180b07;
+  box-shadow: 0 24px 55px rgba($color-orange, 0.25);
+}
+
+.contact-cta::after {
+  position: absolute;
+  top: -12rem;
+  right: -6rem;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  content: '';
+  filter: blur(40px);
+}
+
+.contact-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-8;
+}
+
+.contact-cta__copy {
+  max-width: 54rem;
+}
+
+.contact-cta__copy > span {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: $color-canvas;
+  color: $color-text;
+  font: 700 0.6rem $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-cta__copy h2 {
+  margin: $space-3 0;
+  color: #140a07;
+  font: 700 clamp(1.7rem, 4vw, 3.35rem) / 1.04 $font-display;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.contact-cta__copy p {
+  max-width: 48rem;
+  margin: 0;
+  color: rgba(20, 10, 7, 0.78);
+  font-size: 0.95rem;
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  gap: $space-3;
+}
+
+.contact-cta__actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-6;
+  padding: 0.9rem 1.1rem;
+  border-radius: $radius-sm;
+  font: 700 0.7rem $font-display;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-cta__actions a:hover {
+  transform: translateY(-2px);
+}
+
+.contact-cta__actions span {
+  font: 1rem 'Material Symbols Outlined';
+}
+
+.contact-cta__primary {
+  background: $color-canvas;
+  color: $color-text;
+}
+
+.contact-cta__secondary {
+  border: 1px solid rgba(20, 10, 7, 0.45);
+  color: #180b07;
+}
+
+@media (max-width: 850px) {
+  .contact-cta__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contact-cta__actions {
+    flex-wrap: wrap;
+  }
+}

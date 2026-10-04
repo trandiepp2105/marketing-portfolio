@@ -1,0 +1,44 @@
+@use 'tokens' as *;
+
+@mixin content-width {
+  width: calc(100% - 2rem);
+  max-width: $content-max;
+  margin-inline: auto;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: calc(100% - 4rem);
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1280px;
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 1440px;
+  }
+
+  @media (min-width: 2560px) {
+    max-width: 1500px;
+  }
+}
+
+@mixin eyebrow {
+  color: $color-orange;
+  font-family: $font-display;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+@mixin card-surface {
+  background: $color-surface-raised;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-orange;
+  outline-offset: 3px;
+}

@@ -1,0 +1,66 @@
+@use '../../../styles/tokens' as *;
+
+.project-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr);
+  gap: clamp(1rem, 2.2vw, 2rem);
+  padding: clamp(1rem, 2vw, 1.75rem);
+  border: 1px solid rgba($color-orange, 0.3);
+  border-radius: $radius-lg;
+  background: $color-surface-card;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-showcase:hover {
+  border-color: rgba($color-orange, 0.65);
+  box-shadow: 0 0 32px -18px rgba($color-orange, 0.45);
+}
+
+.project-showcase__media-column,
+.project-showcase__details-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.project-showcase__heading > span {
+  color: $color-orange;
+  font: 700 0.58rem $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-showcase__heading h3 {
+  margin: $space-2 0 0;
+  color: $color-text;
+  font: 700 clamp(1.15rem, 2.1vw, 1.7rem) / 1.15 $font-display;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.project-showcase__lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: $space-3;
+}
+
+@media (max-width: 1050px) {
+  .project-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .project-showcase__lists {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .project-showcase__lists {
+    grid-template-columns: 1fr;
+  }
+}

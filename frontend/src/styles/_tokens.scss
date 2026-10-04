@@ -1,0 +1,40 @@
+$color-canvas: #0b0c10;
+$color-surface: #12141c;
+$color-surface-raised: #181a24;
+$color-surface-card: #1e212e;
+$color-surface-high: #282a32;
+$color-text: #ffffff;
+$color-text-soft: #e1e1ed;
+$color-text-muted: #a2a7b8;
+$color-orange: #ff5e1e;
+$color-orange-hover: #ff7a00;
+$color-orange-pale: #ffb59d;
+$color-blue: #6c8dff;
+$color-border: #25293a;
+$color-border-accent: rgba(255, 94, 30, 0.4);
+
+$font-display: 'Space Grotesk', sans-serif;
+$font-body: 'Hanken Grotesk', sans-serif;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-section: clamp(4rem, 8vw, 7rem);
+
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+
+$content-max: 1200px;
+$header-height: 5rem;
+$shadow-glow: 0 0 24px -4px rgba(255, 94, 30, 0.45);
+$shadow-glow-strong: 0 0 32px rgba(255, 94, 30, 0.55);
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;

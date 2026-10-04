@@ -1,0 +1,49 @@
+@use '../../styles/tokens' as *;
+
+.not-found-page {
+  display: flex;
+  min-height: 60vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-8 1rem;
+  text-align: center;
+}
+
+.not-found-page > span {
+  color: $color-orange;
+  font: 700 0.7rem $font-display;
+  letter-spacing: 0.14em;
+}
+
+.not-found-page h1 {
+  margin: $space-3 0;
+  color: $color-text;
+  font: 700 clamp(2rem, 6vw, 4rem) / 1.05 $font-display;
+}
+
+.not-found-page p {
+  margin: 0;
+  color: $color-text-muted;
+}
+
+.not-found-page > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  margin-top: $space-6;
+}
+
+.not-found-page a {
+  padding: 0.8rem 1rem;
+  border: 1px solid $color-border-accent;
+  border-radius: $radius-sm;
+  background: $color-surface-raised;
+  color: $color-orange-pale;
+  font: 700 0.7rem $font-display;
+  text-transform: uppercase;
+}
+
+.not-found-page a:hover {
+  background: rgba($color-orange, 0.14);
+}

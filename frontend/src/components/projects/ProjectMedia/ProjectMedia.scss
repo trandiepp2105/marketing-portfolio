@@ -1,0 +1,60 @@
+@use '../../../styles/tokens' as *;
+
+.project-media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: #08090d;
+}
+
+.project-media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.project-media:hover > img {
+  transform: scale(1.045);
+}
+
+.project-media__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 11, 15, 0.75), transparent 45%);
+}
+
+.project-media__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 4rem;
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 2px solid $color-orange;
+  border-radius: 50%;
+  background: rgba(11, 12, 16, 0.82);
+  color: $color-orange;
+  font: 2.4rem 'Material Symbols Outlined';
+  box-shadow: 0 0 25px rgba($color-orange, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.project-media:hover .project-media__play {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.project-media__label {
+  position: absolute;
+  bottom: $space-3;
+  left: $space-3;
+  color: $color-text;
+  font: 700 0.57rem $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

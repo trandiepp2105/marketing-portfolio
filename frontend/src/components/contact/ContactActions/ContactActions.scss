@@ -1,0 +1,67 @@
+@use '../../../styles/tokens' as *;
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-3;
+  padding-top: $space-4;
+  border-top: 1px solid $color-border;
+}
+
+.contact-actions a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  font: 700 0.68rem $font-display;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-actions a:hover {
+  transform: translateY(-2px);
+}
+
+.contact-actions span {
+  font: 1.1rem 'Material Symbols Outlined';
+}
+
+.contact-actions__primary {
+  background: $color-orange;
+  color: #2c0e00;
+  box-shadow: 0 0 22px rgba($color-orange, 0.25);
+}
+
+.contact-actions__primary:hover {
+  background: $color-orange-hover;
+}
+
+.contact-actions__secondary {
+  border-color: rgba($color-orange, 0.35) !important;
+  background: $color-surface-raised;
+  color: $color-text;
+}
+
+.contact-actions__secondary:hover {
+  border-color: $color-orange !important;
+  color: $color-orange-pale;
+}
+
+@media (max-width: 560px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions a {
+    width: 100%;
+  }
+}

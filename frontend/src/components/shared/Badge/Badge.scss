@@ -1,0 +1,33 @@
+@use '../../../styles/tokens' as *;
+
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba($color-orange, 0.35);
+  border-radius: $radius-sm;
+  background: rgba($color-orange, 0.12);
+  color: $color-orange-pale;
+  font: 700 0.58rem/1.3 $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badge--solid {
+  background: $color-orange;
+  color: #271006;
+}
+
+.badge--muted {
+  border-color: $color-border;
+  background: $color-surface-high;
+  color: $color-text-muted;
+}
+
+.badge--light {
+  border-color: rgba($color-text, 0.18);
+  background: rgba($color-canvas, 0.65);
+  color: $color-text;
+}

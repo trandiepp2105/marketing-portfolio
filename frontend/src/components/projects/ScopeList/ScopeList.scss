@@ -1,0 +1,52 @@
+@use '../../../styles/tokens' as *;
+
+.project-list-card {
+  min-width: 0;
+  padding: $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: rgba($color-surface, 0.8);
+}
+
+.project-list-card h4 {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin: 0 0 $space-3;
+  padding-bottom: $space-2;
+  border-bottom: 1px solid rgba($color-border, 0.8);
+  color: $color-text;
+  font: 700 0.61rem $font-display;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-list-card h4 span {
+  color: $color-orange;
+  font: 1rem 'Material Symbols Outlined';
+}
+
+.project-list-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-list-card li {
+  position: relative;
+  padding-left: $space-3;
+  color: #c5c7d1;
+  font-size: 0.65rem;
+  line-height: 1.48;
+}
+
+.project-list-card li::before {
+  position: absolute;
+  top: 0.45em;
+  left: 0;
+  color: $color-orange;
+  content: '•';
+}

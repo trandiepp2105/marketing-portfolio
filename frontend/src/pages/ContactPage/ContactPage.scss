@@ -1,0 +1,23 @@
+@use '../../styles/tokens' as *;
+
+.contact-page {
+  position: relative;
+  display: flex;
+  min-height: calc(100vh - #{$header-height});
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 52rem 31rem at 30% 18%, rgba($color-orange, 0.12), transparent 72%),
+    radial-gradient(ellipse 42rem 44rem at 87% 78%, rgba(#ff7a00, 0.12), transparent 72%);
+}
+
+.contact-page__message {
+  display: grid;
+  min-height: 55vh;
+  place-items: center;
+  padding: $space-8;
+  color: $color-text-muted;
+  text-align: center;
+}

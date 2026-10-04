@@ -1,0 +1,71 @@
+@use '../../../styles/tokens' as *;
+
+.achievement-card {
+  display: flex;
+  gap: $space-3;
+  padding: $space-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface-raised;
+  transition: border-color 0.2s ease;
+}
+
+.achievement-card:hover {
+  border-color: rgba($color-orange, 0.5);
+}
+
+.achievement-card__icon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: $radius-sm;
+  background: rgba($color-orange, 0.16);
+  color: $color-orange;
+  font: 1.35rem 'Material Symbols Outlined';
+}
+
+.achievement-card__content {
+  min-width: 0;
+  flex: 1;
+}
+
+.achievement-card__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-2;
+}
+
+.achievement-card__heading h3 {
+  margin: 0;
+  color: $color-text;
+  font: 700 0.85rem/1.35 $font-display;
+  text-transform: uppercase;
+}
+
+.achievement-card__subtitle {
+  margin: 0.3rem 0 0;
+  color: $color-orange-pale;
+  font: 700 0.57rem/1.45 $font-display;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.achievement-card__description {
+  margin: $space-2 0 0;
+  color: $color-text-muted;
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .achievement-card {
+    padding: $space-3;
+  }
+
+  .achievement-card__heading {
+    flex-direction: column;
+  }
+}

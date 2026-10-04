@@ -1,0 +1,157 @@
+@use '../../../styles/tokens' as *;
+
+.skill-group {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface-card;
+}
+
+.skill-group__icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba($color-orange, 0.22);
+  border-radius: $radius-sm;
+  background: rgba($color-orange, 0.12);
+  color: $color-orange;
+  font: 1.25rem 'Material Symbols Outlined';
+}
+
+.skill-group__content {
+  min-width: 0;
+  flex: 1;
+}
+
+.skill-group__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+}
+
+.skill-group__heading h3 {
+  margin: 0;
+  color: $color-text;
+  font: 700 0.82rem $font-display;
+  text-transform: uppercase;
+}
+
+.skill-group__certification {
+  display: block;
+  margin-top: $space-2;
+  color: $color-orange-pale;
+  font: 700 0.78rem $font-display;
+}
+
+.skill-group__issuer {
+  display: block;
+  margin-top: 0.25rem;
+  color: $color-text-muted;
+  font: 700 0.57rem $font-display;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.skill-group__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: $space-3 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-group__items li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface-raised;
+  color: $color-text-soft;
+  font: 600 0.61rem $font-display;
+}
+
+.skill-group--split-items .skill-group__items {
+  display: grid;
+  gap: 0;
+}
+
+.skill-group--split-items .skill-group__items li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  padding: 0.25rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.skill-group__item-label {
+  color: $color-text-soft;
+}
+
+.skill-group__item-detail {
+  color: $color-orange-pale;
+  font: 700 0.54rem $font-display;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.skill-group__item-logo {
+  display: inline-grid;
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.15rem;
+  font:
+    700 0.52rem/1 Arial,
+    sans-serif;
+}
+
+.skill-group__item-logo--photoshop {
+  background: #082b4d;
+  color: #31a8ff;
+}
+
+.skill-group__item-logo--illustrator {
+  background: #3a1d00;
+  color: #ff9a00;
+}
+
+.skill-group__item-logo--canva {
+  background: #073d49;
+  color: #00c4cc;
+}
+
+.skill-group__item-logo--wordpress {
+  border: 1px solid #8c9198;
+  border-radius: 50%;
+  color: #b8bec7;
+}
+
+.skill-group__item-logo--figma {
+  background: linear-gradient(180deg, #f24e1e 0 33%, #ff7262 33% 66%, #a259ff 66%);
+  color: #fff;
+}
+
+.skill-group__item-logo--stitch {
+  color: #8ab4f8;
+  font: 0.75rem 'Material Symbols Outlined';
+}
+
+.skill-group p {
+  margin: $space-2 0 0;
+  color: $color-text-muted;
+  font-size: 0.69rem;
+  line-height: 1.5;
+}

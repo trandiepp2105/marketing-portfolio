@@ -1,0 +1,50 @@
+@use '../../../styles/tokens' as *;
+
+.skills-panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: #151720;
+}
+
+.skills-panel__heading > span {
+  color: $color-text-muted;
+  font: 700 0.65rem $font-display;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skills-panel__heading h2 {
+  margin: $space-2 0 0;
+  color: $color-text;
+  font: 700 clamp(1.4rem, 3vw, 2rem) / 1.1 $font-display;
+  text-transform: uppercase;
+}
+
+.skills-panel__groups {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.skills-panel__expertise {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: $space-6;
+  row-gap: $space-3;
+}
+
+.skills-panel__expertise span {
+  color: $color-text-muted;
+  font: 700 0.54rem $font-display;
+  letter-spacing: 0.12em;
+  word-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.skills-panel__expertise .is-highlighted {
+  color: $color-orange;
+}
