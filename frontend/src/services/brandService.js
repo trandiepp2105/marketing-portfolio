@@ -21,7 +21,7 @@ const brands = [
     companyName: 'VNG',
     category: 'Metaverse Casual',
     description:
-      'A vibrant open-world metaverse connecting friends worldwide. Engage in peaceful fishing, insect collecting, party minigames, zombie hide-and-seek, host lavish home parties, express personal flair with cute fashion avatars, and build your own dream virtual realm.',
+      'Play Together là một tựa game thực tế ảo, nơi người chơi có thể tương tác với nhau và tham gia nhiều hoạt động đa dạng như game party, câu cá,... và tạo ra thế giới trò chơi riêng của bạn.',
     thumbnail:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuC9kUsTZLKAgGB6t8YZMiaxCT3rjGDyVhWULN9GHRFCWPhwZXH1vzqakmORL4LHRv0b7ISDpKsCxwTXlmn0DYG1zz5ZeF-q-R3m-FHcoEmaUckT7oEmfyi13bD1FgZQAVizoVzo9MWHMQ1AFEaFUInKbjZWZX-BFXQb-J_z_to5TQa5hozXpqa74muCcIqQcqOb5t_Lf6uqui5B_qqjrMfUc6bKISNmMOhYp38IMGo6dNREzHlq4LLS0rxF8aytzIR_qekpataps9MYPKo',
     icon: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjw4sdcmIxZ5FBmC-vPew1RCdJerQbRaWdHNM2nwTB-lK4qCo5SEfjaEFN5njIWr-a0Omslgd5EsKk7LGem8YJFLNfI75EBWa-bnkLB0bB1XdFZ1r2VJhPJiQlKC188FFSSqr8GUmH8OQtC9Fox49c3gyujQi0O_UtntHK0FsMniDdlSMI6wj9cc7nGgYg1U9m26SPJKNosYFy6hv-qF12087LP0b1W4AOMfmI5JuVOyzDhJFxMIn5KVk3aqeukoYCFVg',
