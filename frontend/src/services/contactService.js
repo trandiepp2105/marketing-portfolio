@@ -1,5 +1,8 @@
-/** Static contact resource shared by the profile and contact pages. */
-const contact = {
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db, isFirebaseConfigured, requireFirebase } from './firebaseClient';
+
+/** Bundled contact resource used until Firebase is configured. */
+export const bundledContact = {
   email: 'huygia171204@gmail.com',
   phone: '0847391011',
   phoneDisplay: '0847391011 (+84 847 391 011)',
@@ -15,5 +18,17 @@ const contact = {
  * @returns {Promise<Object>} Email, phone, location, LinkedIn and display copy.
  */
 export async function getContact() {
-  return contact;
+  if (!isFirebaseConfigured) {
+    return bundledContact;
+  }
+
+  const contactDocument = await getDoc(doc(db, 'contact', 'primary'));
+
+  return contactDocument.exists() ? contactDocument.data() : bundledContact;
+}
+
+/** Stores the public contact record under its stable document ID. */
+export async function updateContact(contact) {
+  requireFirebase();
+  await setDoc(doc(db, 'contact', 'primary'), contact);
 }

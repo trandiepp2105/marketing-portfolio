@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../../../routes/paths';
 import './SiteFooter.scss';
 
 function SiteFooter() {
@@ -11,7 +12,7 @@ function SiteFooter() {
         </div>
         <nav className="site-footer__links" aria-label="Footer navigation">
           <Link to="/">Profile</Link>
-          <Link to="/projects/crossfire-legends">Branding Projects</Link>
+          <Link to={ROUTES.projects}>Branding Projects</Link>
           <Link to="/contact">Contact</Link>
         </nav>
         <small>© 2025 LY GIA HUY. ALL RIGHTS RESERVED.</small>

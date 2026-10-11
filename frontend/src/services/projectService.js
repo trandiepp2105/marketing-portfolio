@@ -1,5 +1,17 @@
-/** Static project resources from the portfolio design. Replace this source when a content API is available. */
-const projects = [
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+  writeBatch,
+} from 'firebase/firestore';
+import { db, isFirebaseConfigured, requireFirebase } from './firebaseClient';
+
+/** Bundled project resources used until Firebase is configured. */
+export const bundledProjects = [
   {
     id: 'cf-p1',
     brandSlug: 'crossfire-legends',
@@ -483,7 +495,18 @@ const projects = [
  * @returns {Promise<Array<Object>>} Project summaries and case-study content.
  */
 export async function getProjects() {
-  return projects;
+  if (!isFirebaseConfigured) {
+    return bundledProjects;
+  }
+
+  const projectSnapshot = await getDocs(collection(db, 'projects'));
+
+  return projectSnapshot.docs
+    .map((projectDocument) => projectDocument.data())
+    .sort(
+      (first, second) =>
+        first.brandSlug.localeCompare(second.brandSlug) || first.order - second.order,
+    );
 }
 
 /**
@@ -492,7 +515,16 @@ export async function getProjects() {
  * @returns {Promise<Array<Object>>} Matching projects in display order.
  */
 export async function getProjectsByBrand(brandSlug) {
-  return projects.filter((project) => project.brandSlug === brandSlug);
+  if (!isFirebaseConfigured) {
+    return bundledProjects.filter((project) => project.brandSlug === brandSlug);
+  }
+
+  const projectsQuery = query(collection(db, 'projects'), where('brandSlug', '==', brandSlug));
+  const projectSnapshot = await getDocs(projectsQuery);
+
+  return projectSnapshot.docs
+    .map((projectDocument) => projectDocument.data())
+    .sort((first, second) => first.order - second.order);
 }
 
 /**
@@ -501,5 +533,31 @@ export async function getProjectsByBrand(brandSlug) {
  * @returns {Promise<Object|null>} Matching project.
  */
 export async function getProjectById(projectId) {
-  return projects.find((project) => project.id === projectId) ?? null;
+  if (!isFirebaseConfigured) {
+    return bundledProjects.find((project) => project.id === projectId) ?? null;
+  }
+
+  const projectDocument = await getDoc(doc(db, 'projects', projectId));
+
+  return projectDocument.exists() ? projectDocument.data() : null;
+}
+
+/** Stores a project under its stable document ID. */
+export async function createProject(project) {
+  requireFirebase();
+  await setDoc(doc(db, 'projects', project.id), project);
+}
+
+/** Persists the two-project order swap used by the dashboard controls. */
+export async function swapProjectOrder(firstProject, secondProject) {
+  requireFirebase();
+
+  if (firstProject.brandSlug !== secondProject.brandSlug) {
+    throw new Error('Projects can only be reordered within the same brand.');
+  }
+
+  const batch = writeBatch(db);
+  batch.update(doc(db, 'projects', firstProject.id), { order: secondProject.order });
+  batch.update(doc(db, 'projects', secondProject.id), { order: firstProject.order });
+  await batch.commit();
 }

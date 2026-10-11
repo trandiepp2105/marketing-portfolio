@@ -1,5 +1,8 @@
-/** Static brand resources from the portfolio design. */
-const brands = [
+import { collection, doc, getDoc, getDocs, setDoc, updateDoc, writeBatch } from 'firebase/firestore';
+import { db, isFirebaseConfigured, requireFirebase } from './firebaseClient';
+
+/** Bundled brand resources used until Firebase is configured. */
+export const bundledBrands = [
   {
     slug: 'crossfire-legends',
     name: 'Crossfire: Legends',
@@ -34,8 +37,22 @@ const brands = [
  * Returns brands available in the portfolio selector.
  * @returns {Promise<Array<Object>>} Brands in display order.
  */
-export async function getBrands() {
-  return brands;
+export async function getBrands({ includeHidden = false } = {}) {
+  if (!isFirebaseConfigured) {
+    return [...bundledBrands];
+  }
+
+  const brandSnapshot = await getDocs(collection(db, 'brands'));
+  const brands = brandSnapshot.docs
+    .map((brandDocument) => brandDocument.data())
+    .sort((firstBrand, secondBrand) => {
+      const firstOrder = Number(firstBrand.displayOrder ?? Number.MAX_SAFE_INTEGER);
+      const secondOrder = Number(secondBrand.displayOrder ?? Number.MAX_SAFE_INTEGER);
+
+      return firstOrder - secondOrder || firstBrand.name.localeCompare(secondBrand.name);
+    });
+
+  return includeHidden ? brands : brands.filter((brand) => brand.isVisible !== false);
 }
 
 /**
@@ -44,5 +61,42 @@ export async function getBrands() {
  * @returns {Promise<Object|null>} Matching brand.
  */
 export async function getBrandBySlug(brandSlug) {
-  return brands.find((brand) => brand.slug === brandSlug) ?? null;
+  if (!isFirebaseConfigured) {
+    return bundledBrands.find((brand) => brand.slug === brandSlug) ?? null;
+  }
+
+  const brandDocument = await getDoc(doc(db, 'brands', brandSlug));
+
+  if (!brandDocument.exists()) {
+    return null;
+  }
+
+  const brand = brandDocument.data();
+
+  return brand.isVisible === false ? null : brand;
+}
+
+/** Stores a brand document using its stable URL slug as the Firestore ID. */
+export async function createBrand(brand) {
+  requireFirebase();
+  const displayOrder = brand.displayOrder ?? Date.now();
+  await setDoc(doc(db, 'brands', brand.slug), { ...brand, displayOrder });
+}
+
+/** Changes whether a brand and its projects appear in the public portfolio. */
+export async function setBrandVisibility(brandSlug, isVisible) {
+  requireFirebase();
+  await updateDoc(doc(db, 'brands', brandSlug), { isVisible });
+}
+
+/** Persists the complete brand ordering using zero-based displayOrder values. */
+export async function saveBrandOrder(orderedBrands) {
+  requireFirebase();
+
+  const batch = writeBatch(db);
+  orderedBrands.forEach((brand, displayOrder) => {
+    batch.update(doc(db, 'brands', brand.slug), { displayOrder });
+  });
+
+  await batch.commit();
 }

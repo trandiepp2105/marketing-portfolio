@@ -1,0 +1,116 @@
+@use '../../../styles/tokens' as *;
+
+.admin-auth-gate {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 94, 30, 0.1), transparent 30rem), #0b0c10;
+  color: $color-text-soft;
+  font-family: $font-body;
+}
+
+.admin-auth-gate__status {
+  color: $color-text-muted;
+}
+
+.admin-auth-card {
+  width: min(100%, 28rem);
+  padding: clamp(1.5rem, 5vw, 2.6rem);
+  border: 1px solid #303442;
+  border-radius: $radius-md;
+  background: #171922;
+  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.38);
+}
+
+.admin-auth-card__eyebrow {
+  color: $color-orange;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.admin-auth-card h1 {
+  margin: 0.85rem 0 0.5rem;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  line-height: 1.12;
+}
+
+.admin-auth-card p {
+  color: $color-text-muted;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.admin-auth-card__google-button,
+.admin-auth-card__copy-button,
+.admin-auth-card__signout {
+  min-height: 2.8rem;
+  border: 1px solid #3a3e4b;
+  border-radius: $radius-sm;
+  background: #20222b;
+  color: $color-text;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.admin-auth-card__google-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+  background: #f7f7f8;
+  color: #252630;
+}
+
+.admin-auth-card__google-button span {
+  color: #4285f4;
+  font-size: 1.1rem;
+}
+
+.admin-auth-card__google-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.admin-auth-card__access-denied {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.admin-auth-card__uid-label {
+  margin-bottom: 0;
+}
+
+.admin-auth-card__access-denied code,
+.admin-auth-card > p code {
+  overflow-wrap: anywhere;
+  padding: 0.65rem;
+  border-radius: $radius-sm;
+  background: #0e1016;
+  color: #f3a183;
+  font-size: 0.76rem;
+}
+
+.admin-auth-card__copy-button,
+.admin-auth-card__signout {
+  padding: 0 0.8rem;
+}
+
+.admin-auth-card__copy-button {
+  border-color: rgba(255, 94, 30, 0.55);
+  color: $color-orange;
+}
+
+.admin-auth-card__error {
+  margin: 1rem 0 0;
+  color: #ff8a74 !important;
+}

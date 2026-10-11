@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { getBrandProjectsPath } from '../../../routes/paths';
+import { ROUTES } from '../../../routes/paths';
 import './MainNavigation.scss';
 
 const navigationItems = [
   { to: '/', label: '01. Profile' },
-  { to: getBrandProjectsPath('crossfire-legends'), label: '02. Branding Projects' },
+  { to: ROUTES.projects, label: '02. Branding Projects' },
   { to: '/contact', label: '03. Contact' },
 ];
 
@@ -18,7 +18,7 @@ function MainNavigation({ isOpen, onNavigate }) {
       aria-label="Main navigation"
     >
       {navigationItems.map(({ to, label }) => {
-        const isProjectsLink = to === getBrandProjectsPath('crossfire-legends');
+        const isProjectsLink = to === ROUTES.projects;
         const isActive = isProjectsLink
           ? pathname === '/projects' || pathname.startsWith('/projects/')
           : pathname === to;

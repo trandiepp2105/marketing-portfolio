@@ -1,5 +1,8 @@
-/** Static profile resource from the portfolio design. */
-const profile = {
+import { doc, getDoc } from 'firebase/firestore';
+import { db, isFirebaseConfigured } from './firebaseClient';
+
+/** Static profile resource used as the initial Firestore content and fallback. */
+export const bundledProfile = {
   name: 'LY GIA HUY',
   role: 'GAME MARKETING',
   portfolioLabel: 'LY GIA HUY // PORTFOLIO',
@@ -149,8 +152,30 @@ const profile = {
 
 /**
  * Returns the complete profile content for the homepage.
+ * When Firebase is configured, the Firestore document is the source of truth;
+ * bundled content remains a fallback until the profile has been migrated.
  * @returns {Promise<Object>} Profile sections and display content.
  */
 export async function getProfile() {
-  return profile;
+  if (!isFirebaseConfigured) {
+    return bundledProfile;
+  }
+
+  const profileDocument = await getDoc(doc(db, 'profile', 'primary'));
+
+  return profileDocument.exists() ? profileDocument.data() : bundledProfile;
+}
+
+/**
+ * Reports whether the primary profile document has been saved to Firestore.
+ * @returns {Promise<boolean>} True when `profile/primary` exists.
+ */
+export async function hasStoredProfile() {
+  if (!isFirebaseConfigured) {
+    return false;
+  }
+
+  const profileDocument = await getDoc(doc(db, 'profile', 'primary'));
+
+  return profileDocument.exists();
 }
